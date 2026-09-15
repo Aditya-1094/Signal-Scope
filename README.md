@@ -68,7 +68,6 @@ Classification Layer
  ┌───────────────┐
  │               │
 AI-generated    Real
-<<<<<<< HEAD
 ```
 =======
 
@@ -140,4 +139,3 @@ subject to their respective licenses and terms.
 
 Third-party libraries used by this project remain subject to their
 respective licenses.
->>>>>>> 1369cd3 (Readme updated)
