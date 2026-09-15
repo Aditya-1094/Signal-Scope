@@ -66,3 +66,44 @@ Classification Layer
  ┌───────────────┐
  │               │
 AI-generated    Real
+```
+
+---
+
+## 📊 Dataset
+
+This project uses the **CIFAKE: Real and AI-Generated Synthetic Images** dataset. It contains 100,000 labelled images for training (50,000 FAKE + 50,000 REAL). 
+
+* **Dataset Name:** CIFAKE: Real and AI-Generated Synthetic Images
+* **Kaggle Link:** [Click here to view the dataset on Kaggle](https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images)
+
+---
+
+## 📜 License
+
+### Source Code
+
+The original source code of Signal-Scope is licensed under the
+**MIT License**.
+
+See the [LICENSE](LICENSE) file for the complete license text.
+
+The MIT License applies to the **original source code created for this project**.
+
+### Dataset
+
+The MIT License **does not apply to the dataset**.
+
+The dataset was obtained from an external source and remains subject to
+its original license, terms of use, and attribution requirements.
+
+### Pretrained Model
+
+The project uses pretrained EfficientNet-B0 weights provided through
+the PyTorch/Torchvision ecosystem. These pretrained weights remain
+subject to their respective licenses and terms.
+
+### Third-Party Libraries
+
+Third-party libraries used by this project remain subject to their
+respective licenses.
