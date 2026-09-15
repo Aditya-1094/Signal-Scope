@@ -79,11 +79,9 @@ The original source code of Signal-Scope is licensed under the
 **MIT License**.
 
 See the [LICENSE](LICENSE) file for the complete license text.
->>>>>>> 1369cd3 (Readme updated)
 
 The MIT License applies to the **original source code created for this project**.
 
-<<<<<<< HEAD
 ## 📊 Dataset
 
 This project uses the **CIFAKE: Real and AI-Generated Synthetic Images** dataset. It contains 100,000 labelled images for training (50,000 FAKE + 50,000 REAL). 
@@ -94,12 +92,10 @@ This project uses the **CIFAKE: Real and AI-Generated Synthetic Images** dataset
 ### Dataset
 
 The MIT License **does not apply to the dataset**.
->>>>>>> 1369cd3 (Readme updated)
 
 The dataset was obtained from an external source and remains subject to
 its original license, terms of use, and attribution requirements.
 
-<<<<<<< HEAD
 ## 📜 License
 
 ### Source Code
