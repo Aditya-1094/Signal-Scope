@@ -11,6 +11,8 @@ The project uses **EfficientNet-B0 with transfer learning** to classify images i
 
 > **Note:** Signal-Scope provides a model-estimated likelihood and should not be treated as definitive proof of an image's origin.
 
+> **⚠️ Alert:** Please use Python 3.11, 3.12, or any other Python version which is compatible with PyTorch.
+
 ---
 
 ## 🚀 Features
@@ -64,33 +66,3 @@ Classification Layer
  ┌───────────────┐
  │               │
 AI-generated    Real
-```
-
-## 📜 License
-
-### Source Code
-
-The original source code of Signal-Scope is licensed under the
-**MIT License**.
-
-See the [LICENSE](LICENSE) file for the complete license text.
-
-The MIT License applies to the **original source code created for this project**.
-
-### Dataset
-
-The MIT License **does not apply to the dataset**.
-
-The dataset was obtained from an external source and remains subject to
-its original license, terms of use, and attribution requirements.
-
-### Pretrained Model
-
-The project uses pretrained EfficientNet-B0 weights provided through
-the PyTorch/Torchvision ecosystem. These pretrained weights remain
-subject to their respective licenses and terms.
-
-### Third-Party Libraries
-
-Third-party libraries used by this project remain subject to their
-respective licenses.
