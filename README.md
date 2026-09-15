@@ -9,12 +9,11 @@ The project uses **EfficientNet-B0 with transfer learning** to classify images i
 - 🤖 AI-generated
 - 📷 Real
 
+> **🛑 CRITICAL LIMITATION:** **This model ONLY works on 32x32 resolution images.** Passing images of different resolutions or aspect ratios will result in errors or severely degraded, inaccurate predictions.
+
 > **Note:** Signal-Scope provides a model-estimated likelihood and should not be treated as definitive proof of an image's origin.
-<<<<<<< HEAD
 
 > **⚠️ Alert:** Please use Python 3.11, 3.12, or any other Python version which is compatible with PyTorch.
-=======
->>>>>>> 1369cd3 (Readme updated)
 
 ---
 
@@ -42,7 +41,7 @@ Signal-Scope uses **EfficientNet-B0**, a pretrained convolutional neural network
 |---|---|
 | Model | EfficientNet-B0 |
 | Pretrained Weights | ImageNet |
-| Input Size | 224 × 224 |
+| Input Size | **32 × 32** |
 | Classes | 2 |
 | Loss Function | CrossEntropyLoss |
 | Optimizer | Adam |
@@ -58,7 +57,7 @@ The original EfficientNet-B0 classifier was replaced with a two-class classifica
 ```text
 Input Image
      ↓
-Resize 224 × 224
+Resize 32 × 32
      ↓
 EfficientNet-B0
      ↓
