@@ -1,191 +1,96 @@
 # 🔍 Signal-Scope
+
 ### Telling Real From Synthetic in the Age of Generative Media
 
-Signal-Scope is a computer vision system that analyzes an image and estimates whether it is **likely real or AI-generated**.
+Signal-Scope is an AI-powered image classification system that predicts whether an uploaded image is **likely real or likely AI-generated**.
 
-The project uses transfer learning with **EfficientNet-B0** and provides a simple Streamlit interface where users can upload an image and receive a predicted label along with the model's confidence.
+The project uses **EfficientNet-B0 with transfer learning** to classify images into two categories:
 
-> ⚠️ The prediction is a model-estimated likelihood, not definitive proof of an image's origin.
+- 🤖 AI-generated
+- 📷 Real
 
----
-
-## 🎯 Problem
-
-Generative AI models can now create highly realistic images that are difficult to distinguish from photographs.
-
-Signal-Scope addresses the problem of detecting synthetic imagery by building a binary image classifier:
-
-**Input Image → Preprocessing → EfficientNet-B0 → Classification → Confidence → Responsible Verdict**
-
-The system focuses on general real-vs-synthetic image detection and does not attempt to identify or profile real individuals.
+> **Note:** Signal-Scope provides a model-estimated likelihood and should not be treated as definitive proof of an image's origin.
 
 ---
 
 ## 🚀 Features
 
-- 🖼️ Upload JPG, JPEG, PNG, or WEBP images
-- 🤖 Real vs AI-generated image classification
-- 📊 Confidence score
-- ⚡ Simple Streamlit web interface
-- 🧠 Transfer learning using EfficientNet-B0
-- 📈 ROC-AUC and Macro-F1 evaluation
-- 📋 Classification report
-- 🔍 Responsible likelihood-based output
-- 💻 Command-line prediction interface
-- 📓 Jupyter notebook containing model development and evaluation
+- Real vs AI-generated image classification
+- Confidence score for predictions
+- EfficientNet-B0 transfer learning
+- Streamlit web interface
+- Command-line prediction support
+- Held-out test evaluation
+- ROC-AUC and Macro-F1 evaluation
+- Supports JPG, JPEG, PNG and WEBP images
+- Responsible-AI wording using "Likely AI-generated" instead of absolute claims
 
 ---
 
-## 🧩 Implemented Modules
+## 🧠 Model
 
-### Core Module — Real vs AI Classification
+Signal-Scope uses **EfficientNet-B0**, a pretrained convolutional neural network, with transfer learning.
 
-The mandatory core task is implemented.
+### Model Configuration
 
-The model accepts a single image and outputs:
+| Parameter | Value |
+|---|---|
+| Model | EfficientNet-B0 |
+| Pretrained Weights | ImageNet |
+| Input Size | 224 × 224 |
+| Classes | 2 |
+| Loss Function | CrossEntropyLoss |
+| Optimizer | Adam |
+| Learning Rate | 0.0001 |
+| Batch Size | 64 |
+| Epochs | 3 |
+| Threshold | 0.50 |
+| Data Augmentation | None |
+| Calibration | None |
 
-- `AI-generated`
-- `Real`
-- Confidence score
-
-The project also includes a trained model, an honest train/validation/test split, evaluation metrics, and a usable interface.
-
-### Deployment / Real-Time Interface
-
-A Streamlit application provides a drag-and-drop interface for testing new images.
-
-### Bonus Modules
-
-The current implementation does **not** claim full implementation of:
-
-- Generator attribution
-- C2PA / Content Credentials
-- Multimodal image-text consistency
-- Adversarial robustness analysis
-- Faithful Grad-CAM explanations
-- Calibrated confidence
-
-These can be added as future improvements.
-
----
-
-# 🏗️ Architecture
+The original EfficientNet-B0 classifier was replaced with a two-class classification layer.
 
 ```text
-                Input Image
-                     │
-                     ▼
-             Image Preprocessing
-               Resize → 224×224
-                     │
-                     ▼
-          EfficientNet-B0 Backbone
-             Pretrained on ImageNet
-                     │
-                     ▼
-             Classification Layer
-                  2 Classes
-                     │
-                     ▼
-              Softmax Probability
-                     │
-              ┌──────┴──────┐
-              ▼             ▼
-          AI-generated      Real
-              │             │
-              └──────┬──────┘
-                     ▼
-              Confidence Score
-                     │
-                     ▼
-             Responsible UI
-## 🎯 Problem
+Input Image
+     ↓
+Resize 224 × 224
+     ↓
+EfficientNet-B0
+     ↓
+Feature Extraction
+     ↓
+Classification Layer
+     ↓
+ ┌───────────────┐
+ │               │
+AI-generated    Real
+```
 
-Generative AI models can now create highly realistic images that are difficult to distinguish from photographs.
+## 📜 License
 
-Signal-Scope addresses the problem of detecting synthetic imagery by building a binary image classifier:
+### Source Code
 
-**Input Image → Preprocessing → EfficientNet-B0 → Classification → Confidence → Responsible Verdict**
+The original source code of Signal-Scope is licensed under the
+**MIT License**.
 
-The system focuses on general real-vs-synthetic image detection and does not attempt to identify or profile real individuals.
+See the [LICENSE](LICENSE) file for the complete license text.
 
----
+The MIT License applies to the **original source code created for this project**.
 
-## 🚀 Features
+### Dataset
 
-- 🖼️ Upload JPG, JPEG, PNG, or WEBP images
-- 🤖 Real vs AI-generated image classification
-- 📊 Confidence score
-- ⚡ Simple Streamlit web interface
-- 🧠 Transfer learning using EfficientNet-B0
-- 📈 ROC-AUC and Macro-F1 evaluation
-- 📋 Classification report
-- 🔍 Responsible likelihood-based output
-- 💻 Command-line prediction interface
-- 📓 Jupyter notebook containing model development and evaluation
+The MIT License **does not apply to the dataset**.
 
----
+The dataset was obtained from an external source and remains subject to
+its original license, terms of use, and attribution requirements.
 
-## 🧩 Implemented Modules
+### Pretrained Model
 
-### Core Module — Real vs AI Classification
+The project uses pretrained EfficientNet-B0 weights provided through
+the PyTorch/Torchvision ecosystem. These pretrained weights remain
+subject to their respective licenses and terms.
 
-The mandatory core task is implemented.
+### Third-Party Libraries
 
-The model accepts a single image and outputs:
-
-- `AI-generated`
-- `Real`
-- Confidence score
-
-The project also includes a trained model, an honest train/validation/test split, evaluation metrics, and a usable interface.
-
-### Deployment / Real-Time Interface
-
-A Streamlit application provides a drag-and-drop interface for testing new images.
-
-### Bonus Modules
-
-The current implementation does **not** claim full implementation of:
-
-- Generator attribution
-- C2PA / Content Credentials
-- Multimodal image-text consistency
-- Adversarial robustness analysis
-- Faithful Grad-CAM explanations
-- Calibrated confidence
-
-These can be added as future improvements.
-
----
-
-# 🏗️ Architecture
-
-```text
-                Input Image
-                     │
-                     ▼
-             Image Preprocessing
-               Resize → 224×224
-                     │
-                     ▼
-          EfficientNet-B0 Backbone
-             Pretrained on ImageNet
-                     │
-                     ▼
-             Classification Layer
-                  2 Classes
-                     │
-                     ▼
-              Softmax Probability
-                     │
-              ┌──────┴──────┐
-              ▼             ▼
-          AI-generated      Real
-              │             │
-              └──────┬──────┘
-                     ▼
-              Confidence Score
-                     │
-                     ▼
-             Responsible UI
+Third-party libraries used by this project remain subject to their
+respective licenses.
